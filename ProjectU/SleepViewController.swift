@@ -32,7 +32,7 @@ class SleepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 1
+            motionManager.accelerometerUpdateInterval = 8
         }
     }
     

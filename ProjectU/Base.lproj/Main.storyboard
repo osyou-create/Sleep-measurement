@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="842.39999999999998" y="136.28185907046478"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="QEF-Sx-baJ">
             <objects>
-                <viewController id="n4A-Kc-1AC" sceneMemberID="viewController">
+                <viewController id="n4A-Kc-1AC" customClass="HomeViewController" customModule="ProjectU" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z7Y-bh-aa2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,6 +193,10 @@
                                     <segue destination="BYZ-38-t0r" kind="show" animates="NO" id="PCB-U0-bIn"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBB-ej-rJn">
+                                <rect key="frame" x="0.0" y="93" width="375" height="518"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -200,18 +204,25 @@
                             <constraint firstItem="c5Y-dm-vzm" firstAttribute="leading" secondItem="L3c-am-Tbf" secondAttribute="leading" constant="10" id="HYZ-CC-Ywm"/>
                             <constraint firstItem="WHG-b5-y9t" firstAttribute="top" secondItem="L3c-am-Tbf" secondAttribute="top" constant="30" id="JhL-yi-fRc"/>
                             <constraint firstItem="WHG-b5-y9t" firstAttribute="leading" secondItem="L3c-am-Tbf" secondAttribute="leading" id="TSO-cs-NHN"/>
+                            <constraint firstItem="IBB-ej-rJn" firstAttribute="top" secondItem="WHG-b5-y9t" secondAttribute="bottom" constant="10" id="UzM-4z-LZh"/>
                             <constraint firstItem="L3c-am-Tbf" firstAttribute="trailing" secondItem="c5Y-dm-vzm" secondAttribute="trailing" id="VFh-nk-QVh"/>
+                            <constraint firstItem="IBB-ej-rJn" firstAttribute="leading" secondItem="L3c-am-Tbf" secondAttribute="leading" id="dFP-gi-MfR"/>
                             <constraint firstItem="L3c-am-Tbf" firstAttribute="bottom" secondItem="c5Y-dm-vzm" secondAttribute="bottom" constant="10" id="lxn-M6-2fc"/>
+                            <constraint firstItem="L3c-am-Tbf" firstAttribute="trailing" secondItem="IBB-ej-rJn" secondAttribute="trailing" id="tlg-Hv-Vpx"/>
+                            <constraint firstItem="c5Y-dm-vzm" firstAttribute="top" secondItem="IBB-ej-rJn" secondAttribute="bottom" constant="10" id="y3R-r5-of5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L3c-am-Tbf"/>
                     </view>
+                    <connections>
+                        <outlet property="homeWebView" destination="IBB-ej-rJn" id="0s9-HQ-5LG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kS-Fg-RNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525" y="135"/>
+            <point key="canvasLocation" x="1524" y="134.48275862068968"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mbb-eq-y26"/>
+        <segue reference="PCB-U0-bIn"/>
     </inferredMetricsTieBreakers>
 </document>
