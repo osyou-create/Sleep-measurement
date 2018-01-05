@@ -49,7 +49,7 @@ class SleepViewController: UIViewController {
         accelerometerX.text = String(format: "%06f", acceleX)
         accelerometerY.text = String(format: "%06f", acceleY)
         accelerometerZ.text = String(format: "%06f", acceleZ)
-        sleep_average.text = String(format: "%06f", average)
+        sleep_average.text = average
         getNowTime()
         sleepdate[0].append(average)
         sleepdate[1].append(now)
@@ -62,9 +62,11 @@ class SleepViewController: UIViewController {
                 self.lowpassFilter(acceleration: accelData!.acceleration)
         })
         locationManager.startUpdatingLocation()
+        self.view.backgroundColor = UIColor.red
     }
     
     @IBAction func sleepstop(_ sender: UIButton) {
+        self.view.backgroundColor = UIColor.white
         if (motionManager.isAccelerometerActive) {
             motionManager.stopAccelerometerUpdates()
             userPath = NSHomeDirectory()+"/Documents/(\(number)-\(now).csv"
