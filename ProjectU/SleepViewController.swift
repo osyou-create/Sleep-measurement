@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import CoreLocation
+import Darwin
 
 class SleepViewController: UIViewController {
     
@@ -23,25 +24,35 @@ class SleepViewController: UIViewController {
     var acceleX: Double = 0
     var acceleY: Double = 0
     var acceleZ: Double = 0
-    var average: Double = 0
+    var average: String!
     let Alpha = 0.4
     var flg: Bool = false
     
-    var sleepdate:[Double] = []
+    var sleepdate:[[String]]=[[],[]]
     var userPath:String!
+    var now:String!
+    
     var number = 0
+    
+    func getNowTime(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "HHmmss", options: 0, locale: Locale(identifier: "ja_JP"))
+        now = formatter.string(from: Date())
+    }
     
     func lowpassFilter(acceleration: CMAcceleration){
         acceleX = Alpha * acceleration.x + acceleX * (1.0 - Alpha)
         acceleY = Alpha * acceleration.y + acceleY * (1.0 - Alpha)
         acceleZ = Alpha * acceleration.z + acceleZ * (1.0 - Alpha)
-        average = (acceleX + acceleY + acceleZ)/3
+        average = String("\((acceleX + acceleY + acceleZ)/3)")
         
         accelerometerX.text = String(format: "%06f", acceleX)
         accelerometerY.text = String(format: "%06f", acceleY)
         accelerometerZ.text = String(format: "%06f", acceleZ)
         sleep_average.text = String(format: "%06f", average)
-        sleepdate.append(average)
+        getNowTime()
+        sleepdate[0].append(average)
+        sleepdate[1].append(now)
     }
     
     @IBAction func sleepstart(_ sender: UIButton) {
@@ -56,8 +67,19 @@ class SleepViewController: UIViewController {
     @IBAction func sleepstop(_ sender: UIButton) {
         if (motionManager.isAccelerometerActive) {
             motionManager.stopAccelerometerUpdates()
-            userPath = NSHomeDirectory()+"/Documents/\(number).csv"
-            let csvdate = sleepdate.description
+            userPath = NSHomeDirectory()+"/Documents/(\(number)-\(now).csv"
+            var csvdate:String = ""
+            
+            for singleArray in sleepdate{
+                for singleString in singleArray{
+                    csvdate += singleString
+                    if singleString != singleArray[singleArray.count-1]{
+                        csvdate += ","
+                    }else{
+                        csvdate += "\n"
+                    }
+                }
+            }
             do{
                 try csvdate.write(toFile: userPath,atomically: true,encoding: String.Encoding.utf8)
             }catch _ as NSError{
@@ -65,6 +87,7 @@ class SleepViewController: UIViewController {
 
         }
         sleepdate.removeAll()
+        sleepdate = [[],[]]
         number += 1
         locationManager.stopUpdatingLocation()
     }
