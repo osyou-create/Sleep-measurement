@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreMotion
+import CoreLocation
 
 class SleepViewController: UIViewController {
+    
     let motionManager = CMMotionManager()
+    var locationManager : CLLocationManager!
     
     @IBOutlet var accelerometerX: UILabel!
     @IBOutlet var accelerometerY: UILabel!
@@ -27,14 +30,6 @@ class SleepViewController: UIViewController {
     var sleepdate:[Double] = []
     var userPath:String!
     var number = 0
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if motionManager.isAccelerometerAvailable {
-            motionManager.accelerometerUpdateInterval = 8
-        }
-    }
     
     func lowpassFilter(acceleration: CMAcceleration){
         acceleX = Alpha * acceleration.x + acceleX * (1.0 - Alpha)
@@ -55,6 +50,7 @@ class SleepViewController: UIViewController {
             withHandler: {(accelData: CMAccelerometerData?, errorOC: Error?) in
                 self.lowpassFilter(acceleration: accelData!.acceleration)
         })
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction func sleepstop(_ sender: UIButton) {
@@ -70,7 +66,37 @@ class SleepViewController: UIViewController {
         }
         sleepdate.removeAll()
         number += 1
+        locationManager.stopUpdatingLocation()
     }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if motionManager.isAccelerometerAvailable {
+            motionManager.accelerometerUpdateInterval = 8
+        }
+        locationManager = CLLocationManager.init()
+        locationManager.allowsBackgroundLocationUpdates = true;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        locationManager.delegate = self as? CLLocationManagerDelegate;
+        let status = CLLocationManager.authorizationStatus()
+        if (status == .notDetermined) {
+            locationManager.requestAlwaysAuthorization();
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let _ : CLLocation = locations.last!;
+    }
+    
+    // 位置情報の取得に失敗すると呼ばれる
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
