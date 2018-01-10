@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var homeWebView: UIWebView!
-    var url:String = "http://ec2-52-192-46-109.ap-northeast-1.compute.amazonaws.com"
+    var url:String = "https://project-u.site"
     
     func loadURL(){
         let requestURL = URL(string: url)

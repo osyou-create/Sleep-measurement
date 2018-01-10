@@ -33,8 +33,7 @@ class SleepViewController: UIViewController {
     var userPath:String!
     //現在時刻
     var now:String!
-    //ファイルナンバー
-    var number = 0
+    var now_day:String!
     
     //現在時刻取得
     func getNowTime(){
@@ -57,25 +56,29 @@ class SleepViewController: UIViewController {
         sleep_average.text = average
         //現在時刻と平均値をcsvデータ配列に追加
         getNowTime()
-        sleepdate[0].append(average)
-        sleepdate[1].append(now)
+        sleepdate[0].append(now)
+        sleepdate[1].append(average)
     }
     //睡眠測定スタートボタン(BGで動かすのに同時に位置情報開始)
-    @IBAction func sleepstart(_ sender: UIButton) {
+    @IBAction func sleepstart(_ sender: UIButton!) {
         motionManager.startAccelerometerUpdates(
             to: OperationQueue.current!,
             withHandler: {(accelData: CMAccelerometerData?, errorOC: Error?) in
                 self.lowpassFilter(acceleration: accelData!.acceleration)
         })
         locationManager.startUpdatingLocation()
-        self.view.backgroundColor = UIColor.red
+        self.view.backgroundColor = UIColor.init(red: 0, green: 255, blue: 157, alpha: 1)
+        
     }
     //睡眠測定ストップボタン（終了と同時にcsvファイルに書き込み,位置情報終了）
     @IBAction func sleepstop(_ sender: UIButton) {
         self.view.backgroundColor = UIColor.white
         if (motionManager.isAccelerometerActive) {
             motionManager.stopAccelerometerUpdates()
-            userPath = NSHomeDirectory()+"/Documents/(\(number)-\(now).csv"
+            let n = DateFormatter()
+            n.dateFormat = DateFormatter.dateFormat(fromTemplate: "ydMMMHHmmss", options: 0, locale: Locale(identifier: "ja_JP"))
+            now_day = n.string(from: Date())
+            userPath = NSHomeDirectory()+"/Documents/\(now_day).csv"
             var csvdate:String = ""
             for singleArray in sleepdate{
                 for singleString in singleArray{
@@ -97,7 +100,6 @@ class SleepViewController: UIViewController {
         //データを破棄からの初期化
         sleepdate.removeAll()
         sleepdate = [[],[]]
-        number += 1
         locationManager.stopUpdatingLocation()
     }
 
