@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39753F152007CA11001857CD /* timeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39753F142007CA11001857CD /* timeViewController.swift */; };
 		397D8BFC1FED284B00F3D618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D8BFB1FED284B00F3D618 /* AppDelegate.swift */; };
 		397D8BFE1FED284B00F3D618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397D8BFD1FED284B00F3D618 /* ViewController.swift */; };
 		397D8C011FED284B00F3D618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 397D8BFF1FED284B00F3D618 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39753F142007CA11001857CD /* timeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeViewController.swift; sourceTree = "<group>"; };
 		397D8BF81FED284B00F3D618 /* ProjectU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		397D8BFB1FED284B00F3D618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		397D8BFD1FED284B00F3D618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				397D8BFD1FED284B00F3D618 /* ViewController.swift */,
 				397D8C0F1FED6EC900F3D618 /* HomeViewController.swift */,
 				397D8C0D1FED2EC800F3D618 /* SleepViewController.swift */,
+				39753F142007CA11001857CD /* timeViewController.swift */,
 				397D8BFF1FED284B00F3D618 /* Main.storyboard */,
 				397D8C021FED284B00F3D618 /* Assets.xcassets */,
 				397D8C041FED284B00F3D618 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 				397D8BFE1FED284B00F3D618 /* ViewController.swift in Sources */,
 				397D8BFC1FED284B00F3D618 /* AppDelegate.swift in Sources */,
 				397D8C101FED6EC900F3D618 /* HomeViewController.swift in Sources */,
+				39753F152007CA11001857CD /* timeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
