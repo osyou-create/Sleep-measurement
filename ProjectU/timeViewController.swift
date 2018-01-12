@@ -10,7 +10,7 @@ import UIKit
 
 class timeViewController: UIViewController {
     @IBOutlet weak var setTime: UILabel!
-    @IBOutlet weak var sunup: UISwitch!
+    @IBOutlet weak var rema_time: UILabel!
     @IBOutlet weak var upTime: UIDatePicker!
     
     //何分後だったかを入れる変数。
@@ -59,7 +59,11 @@ class timeViewController: UIViewController {
             let after_time = set_time
             if diff_day >= 0{
                 result_time = before_time + after_time + (diff_day-1)*24*60
-                if result_time > 60{
+                if result_time > 1440{
+                    let day = result_time/1400
+                    let hour = result_time - (day*1440)
+                    setTime.text = "\(day)日\(hour/60)時間\(hour%60)分後です"
+                }else if result_time > 60{
                     setTime.text = "\(result_time/60)時間\(result_time%60)分後です"
                 }else{
                     setTime.text = "\(result_time)分後です"
@@ -71,22 +75,26 @@ class timeViewController: UIViewController {
         
         
     }
-    
-    @IBAction func uptime_push(_ sender: UIButton) {
-        culcTime()
-        /*
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        let now = Date()
-
-        uptime_label.text = temp
-        temp_second = Int(temp)!*3600 + Int(temp2)!*60
-        print(String(temp_second))
+    //残り時間のカウントダウン
+    func remaining_hour(){
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(temp_second)) {
-            print("aaaaa")
-        }
-         */
+    }
+    
+    //ボタンクリック動作
+    @IBAction func uptime_push(_ sender: UIButton) {
+        let alert = UIAlertController(title:"時間設定",message:"起床時間の設定です",preferredStyle: UIAlertControllerStyle.alert)
+        let ok = UIAlertAction(title:"時間を設定する",style:UIAlertActionStyle.default,handler:{
+            (action: UIAlertAction!) in
+            self.culcTime()
+            self.remaining_hour()
+        })
+        let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
+            (action: UIAlertAction!) in
+        })
+        alert.addAction(ok)
+        alert.addAction(cancel)
+        
+        self.present(alert,animated: true,completion: nil)
     }
     
     

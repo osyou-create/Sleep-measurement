@@ -267,17 +267,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-ga-VWB">
-                                <rect key="frame" x="36" y="454" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開ける時間を日の出に合わせる" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVW-SF-cTJ">
-                                <rect key="frame" x="103" y="459" width="243" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aY-IA-91l">
                                 <rect key="frame" x="20" y="611" width="62" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -286,37 +275,51 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="BEF-Rk-uNx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXL-1t-lwY">
-                                <rect key="frame" x="172" y="525" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="設定"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXL-1t-lwY">
+                                <rect key="frame" x="100" y="508" width="175" height="33"/>
+                                <color key="backgroundColor" red="1" green="0.4392432886" blue="0.46919143060000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="設定">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="uptime_push:" destination="vxy-OZ-Xyw" eventType="touchUpInside" id="81L-IT-sjg"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Djl-HS-bf5">
-                                <rect key="frame" x="16" y="223" width="343" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Djl-HS-bf5">
+                                <rect key="frame" x="16" y="242" width="343" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="537429602.54708505">
                                     <!--2018-01-12 06:00:02 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="ja"/>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起床時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWI-a1-Rlh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWI-a1-Rlh">
                                 <rect key="frame" x="30" y="130" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0分後" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-ON-IIk">
-                                <rect key="frame" x="130" y="130" width="45" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間を設定してください。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-ON-IIk">
+                                <rect key="frame" x="130" y="130" width="208" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N1-wP-Eld">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="起床時間" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N1-wP-Eld">
                                 <rect key="frame" x="20" y="70" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残り時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBI-nC-3JL">
+                                <rect key="frame" x="30" y="171" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残り時間が表示されます。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u28-E6-iYv">
+                                <rect key="frame" x="130" y="171" width="208" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -325,26 +328,34 @@
                         <constraints>
                             <constraint firstItem="Zrd-5R-6pO" firstAttribute="trailing" secondItem="3N1-wP-Eld" secondAttribute="trailing" constant="20" id="6Ht-7H-A25"/>
                             <constraint firstItem="Ibd-ON-IIk" firstAttribute="leading" secondItem="yWI-a1-Rlh" secondAttribute="trailing" constant="30" id="Ahd-hv-o0l"/>
+                            <constraint firstItem="u28-E6-iYv" firstAttribute="leading" secondItem="SBI-nC-3JL" secondAttribute="trailing" constant="30" id="BbF-JT-YBK"/>
+                            <constraint firstItem="SBI-nC-3JL" firstAttribute="top" secondItem="yWI-a1-Rlh" secondAttribute="bottom" constant="20" id="KaM-49-2Vr"/>
                             <constraint firstItem="3N1-wP-Eld" firstAttribute="top" secondItem="Zrd-5R-6pO" secondAttribute="top" constant="50" id="S3m-3q-Psg"/>
                             <constraint firstItem="Zrd-5R-6pO" firstAttribute="bottom" secondItem="4aY-IA-91l" secondAttribute="bottom" constant="20" id="Tbd-ei-9id"/>
                             <constraint firstItem="yWI-a1-Rlh" firstAttribute="leading" secondItem="Zrd-5R-6pO" secondAttribute="leading" constant="30" id="WL8-E1-eGS"/>
+                            <constraint firstItem="eXL-1t-lwY" firstAttribute="leading" secondItem="Zrd-5R-6pO" secondAttribute="leading" constant="100" id="Y85-0j-tEm"/>
                             <constraint firstItem="yWI-a1-Rlh" firstAttribute="top" secondItem="3N1-wP-Eld" secondAttribute="bottom" constant="30" id="b2w-p5-cWR"/>
+                            <constraint firstItem="u28-E6-iYv" firstAttribute="top" secondItem="Ibd-ON-IIk" secondAttribute="bottom" constant="20" id="e8f-Vw-KJo"/>
                             <constraint firstItem="4aY-IA-91l" firstAttribute="leading" secondItem="Zrd-5R-6pO" secondAttribute="leading" constant="20" id="eUT-Uk-Biu"/>
                             <constraint firstItem="3N1-wP-Eld" firstAttribute="leading" secondItem="Zrd-5R-6pO" secondAttribute="leading" constant="20" id="ekU-3y-cOM"/>
+                            <constraint firstItem="SBI-nC-3JL" firstAttribute="leading" secondItem="Zrd-5R-6pO" secondAttribute="leading" constant="30" id="ilU-cU-nGC"/>
+                            <constraint firstItem="Zrd-5R-6pO" firstAttribute="trailing" secondItem="eXL-1t-lwY" secondAttribute="trailing" constant="100" id="lsw-AU-dAD"/>
+                            <constraint firstItem="eXL-1t-lwY" firstAttribute="top" secondItem="Djl-HS-bf5" secondAttribute="bottom" constant="50" id="tOs-ZL-f7b"/>
                             <constraint firstItem="Ibd-ON-IIk" firstAttribute="top" secondItem="3N1-wP-Eld" secondAttribute="bottom" constant="30" id="tfX-uF-SsU"/>
+                            <constraint firstItem="Djl-HS-bf5" firstAttribute="top" secondItem="SBI-nC-3JL" secondAttribute="bottom" constant="50" id="vIo-Hp-EOr"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4aY-IA-91l" secondAttribute="trailing" constant="20" symbolic="YES" id="x8d-Zw-FKD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zrd-5R-6pO"/>
                     </view>
                     <connections>
+                        <outlet property="rema_time" destination="u28-E6-iYv" id="8MO-Cy-wFM"/>
                         <outlet property="setTime" destination="Ibd-ON-IIk" id="mYh-wi-eVz"/>
-                        <outlet property="sunup" destination="tUl-ga-VWB" id="OBX-aB-SUb"/>
                         <outlet property="upTime" destination="Djl-HS-bf5" id="3Hl-oX-aR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Uq-hE-kYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095" y="134"/>
+            <point key="canvasLocation" x="2093.5999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
