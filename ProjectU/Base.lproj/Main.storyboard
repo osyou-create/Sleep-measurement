@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-Qe-KBE">
-                                <rect key="frame" x="50" y="282" width="120" height="100"/>
+                                <rect key="frame" x="20" y="282" width="120" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.82514204980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="H3b-So-S2G"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-iD-EKI">
-                                <rect key="frame" x="205" y="282" width="120" height="100"/>
+                                <rect key="frame" x="235" y="282" width="120" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.82514204979447392" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="MRo-31-8vX"/>
@@ -64,8 +64,8 @@
                                     <segue destination="DkN-NZ-B7Q" kind="show" animates="NO" id="aqf-TW-I3g"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcV-KZ-i4H">
-                                <rect key="frame" x="127" y="461" width="120" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcV-KZ-i4H">
+                                <rect key="frame" x="20" y="417" width="335" height="100"/>
                                 <color key="backgroundColor" red="0.34294762779999999" green="1" blue="0.41660504199999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="MZ5-90-7h3"/>
@@ -79,15 +79,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qHG-iD-EKI" secondAttribute="trailing" constant="50" id="La8-ru-ui0"/>
+                            <constraint firstItem="vcV-KZ-i4H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EFW-Mu-ebV"/>
                             <constraint firstItem="qHG-iD-EKI" firstAttribute="top" secondItem="udN-rt-uST" secondAttribute="bottom" constant="200" id="SRv-fr-mVm"/>
-                            <constraint firstItem="vcV-KZ-i4H" firstAttribute="centerX" secondItem="udN-rt-uST" secondAttribute="centerX" id="Yv6-ff-Yjf"/>
-                            <constraint firstItem="cDf-Qe-KBE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="due-9U-62f"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qHG-iD-EKI" secondAttribute="trailing" constant="20" id="bMP-WB-yeU"/>
                             <constraint firstItem="cDf-Qe-KBE" firstAttribute="top" secondItem="udN-rt-uST" secondAttribute="bottom" constant="200" id="fYa-LV-1SY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="udN-rt-uST" secondAttribute="trailing" id="iVq-VV-dju"/>
+                            <constraint firstItem="cDf-Qe-KBE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pHU-qc-QeA"/>
                             <constraint firstItem="udN-rt-uST" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="vEd-ex-pfx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vcV-KZ-i4H" secondAttribute="bottom" constant="150" id="xAj-jU-PvX"/>
                             <constraint firstItem="udN-rt-uST" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xI9-lm-MnP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vcV-KZ-i4H" secondAttribute="bottom" constant="50" id="xR4-fC-aOc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vcV-KZ-i4H" secondAttribute="trailing" constant="20" id="xlh-1k-Zer"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -272,18 +273,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUl-ga-VWB">
-                                <rect key="frame" x="40" y="597" width="49" height="31"/>
+                                <rect key="frame" x="36" y="454" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開ける時間を日の出に合わせる" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVW-SF-cTJ">
-                                <rect key="frame" x="105" y="602" width="243" height="21"/>
+                                <rect key="frame" x="103" y="459" width="243" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aY-IA-91l">
+                                <rect key="frame" x="20" y="611" width="62" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="＜戻る"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="BEF-Rk-uNx"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXL-1t-lwY">
-                                <rect key="frame" x="172" y="451" width="31" height="30"/>
+                                <rect key="frame" x="172" y="525" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="設定"/>
                             </button>
@@ -292,7 +301,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="G9W-yP-8qV" secondAttribute="trailing" id="EIF-wv-lTk"/>
                             <constraint firstItem="G9W-yP-8qV" firstAttribute="leading" secondItem="C1r-0P-aa2" secondAttribute="leading" id="Poh-Gc-w24"/>
+                            <constraint firstItem="Zrd-5R-6pO" firstAttribute="bottom" secondItem="4aY-IA-91l" secondAttribute="bottom" constant="20" id="Tbd-ei-9id"/>
                             <constraint firstItem="Zrd-5R-6pO" firstAttribute="bottom" secondItem="G9W-yP-8qV" secondAttribute="bottom" constant="260" id="dTO-d8-q1I"/>
+                            <constraint firstItem="4aY-IA-91l" firstAttribute="leading" secondItem="Zrd-5R-6pO" secondAttribute="leading" constant="20" id="eUT-Uk-Biu"/>
                             <constraint firstItem="La1-F9-MId" firstAttribute="top" secondItem="Zrd-5R-6pO" secondAttribute="top" constant="122" id="kGU-sx-jJK"/>
                             <constraint firstItem="La1-F9-MId" firstAttribute="centerX" secondItem="G9W-yP-8qV" secondAttribute="centerX" id="mTQ-K6-2yg"/>
                             <constraint firstItem="G9W-yP-8qV" firstAttribute="top" secondItem="Zrd-5R-6pO" secondAttribute="top" constant="225" id="uLy-2Q-RVj"/>
@@ -312,6 +323,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rp8-HC-q66"/>
+        <segue reference="BEF-Rk-uNx"/>
     </inferredMetricsTieBreakers>
 </document>

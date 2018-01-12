@@ -3,7 +3,7 @@
 //  ProjectU
 //
 //  Created by Naoya on 2017/12/23.
-//  Copyright © 2017年 osyou. All rights reserved.
+//  Copyright © 2018年 osyou. All rights reserved.
 //
 
 import UIKit
@@ -19,27 +19,20 @@ class HomeViewController: UIViewController {
         homeWebView.loadRequest(request)
     }
     
+    func userAgent(){
+        let newUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_1 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
+        let dic = ["UserAgent" : newUserAgent]
+        UserDefaults.standard.register(defaults: dic)
+    }
+    
     
     override func viewDidLoad() {
+        self.userAgent()
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         loadURL()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
