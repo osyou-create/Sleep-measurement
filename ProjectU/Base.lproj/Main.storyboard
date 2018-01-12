@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,21 +38,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-Qe-KBE">
-                                <rect key="frame" x="20" y="282" width="120" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="0.82514204980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="H3b-So-S2G"/>
-                                    <constraint firstAttribute="width" constant="120" id="JF9-sI-uAf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="サイト"/>
-                                <connections>
-                                    <segue destination="n4A-Kc-1AC" kind="show" animates="NO" id="pZX-rQ-i4b"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-iD-EKI">
-                                <rect key="frame" x="235" y="282" width="120" height="100"/>
+                                <rect key="frame" x="30" y="387" width="315" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.82514204979447392" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="MRo-31-8vX"/>
@@ -65,30 +52,48 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcV-KZ-i4H">
-                                <rect key="frame" x="20" y="417" width="335" height="100"/>
-                                <color key="backgroundColor" red="0.34294762779999999" green="1" blue="0.41660504199999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="30" y="517" width="315" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.82514204980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="MZ5-90-7h3"/>
                                     <constraint firstAttribute="width" constant="120" id="oRk-oI-nYa"/>
                                 </constraints>
-                                <state key="normal" title="時間設定"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="時間設定">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="vxy-OZ-Xyw" kind="show" id="Adq-lC-sov"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDf-Qe-KBE">
+                                <rect key="frame" x="30" y="257" width="315" height="100"/>
+                                <color key="backgroundColor" red="0.0" green="0.82514204980000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="H3b-So-S2G"/>
+                                    <constraint firstAttribute="width" constant="120" id="JF9-sI-uAf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="サイト"/>
+                                <connections>
+                                    <segue destination="n4A-Kc-1AC" kind="show" animates="NO" id="pZX-rQ-i4b"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vcV-KZ-i4H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="EFW-Mu-ebV"/>
-                            <constraint firstItem="qHG-iD-EKI" firstAttribute="top" secondItem="udN-rt-uST" secondAttribute="bottom" constant="200" id="SRv-fr-mVm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qHG-iD-EKI" secondAttribute="trailing" constant="20" id="bMP-WB-yeU"/>
-                            <constraint firstItem="cDf-Qe-KBE" firstAttribute="top" secondItem="udN-rt-uST" secondAttribute="bottom" constant="200" id="fYa-LV-1SY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vcV-KZ-i4H" secondAttribute="bottom" constant="50" id="84z-p7-sN2"/>
+                            <constraint firstItem="vcV-KZ-i4H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="OEP-aa-oNA"/>
+                            <constraint firstItem="qHG-iD-EKI" firstAttribute="top" secondItem="cDf-Qe-KBE" secondAttribute="bottom" constant="30" id="OVh-1l-uAm"/>
+                            <constraint firstItem="qHG-iD-EKI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="PgQ-7Q-vI4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qHG-iD-EKI" secondAttribute="trailing" constant="30" id="V0L-1N-hqN"/>
+                            <constraint firstItem="cDf-Qe-KBE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="eKy-9z-EXr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="udN-rt-uST" secondAttribute="trailing" id="iVq-VV-dju"/>
-                            <constraint firstItem="cDf-Qe-KBE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pHU-qc-QeA"/>
+                            <constraint firstItem="vcV-KZ-i4H" firstAttribute="top" secondItem="qHG-iD-EKI" secondAttribute="bottom" constant="30" id="mav-5x-jLc"/>
                             <constraint firstItem="udN-rt-uST" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="vEd-ex-pfx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vcV-KZ-i4H" secondAttribute="bottom" constant="150" id="xAj-jU-PvX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cDf-Qe-KBE" secondAttribute="trailing" constant="30" id="wcP-Ia-eQS"/>
                             <constraint firstItem="udN-rt-uST" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xI9-lm-MnP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vcV-KZ-i4H" secondAttribute="trailing" constant="20" id="xlh-1k-Zer"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vcV-KZ-i4H" secondAttribute="trailing" constant="30" id="y7S-i8-5QB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -198,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlP-1t-t5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842.39999999999998" y="136.28185907046478"/>
+            <point key="canvasLocation" x="793" y="134"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="QEF-Sx-baJ">
@@ -214,10 +219,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <webView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IBB-ej-rJn">
-                                <rect key="frame" x="0.0" y="93" width="375" height="518"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X7i-No-Cpf">
                                 <rect key="frame" x="20" y="611" width="62" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -226,6 +227,15 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="DrY-zU-MNK"/>
                                 </connections>
                             </button>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ur-5k-rK5">
+                                <rect key="frame" x="0.0" y="99" width="375" height="495"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -234,19 +244,16 @@
                             <constraint firstItem="L3c-am-Tbf" firstAttribute="trailing" secondItem="WHG-b5-y9t" secondAttribute="trailing" id="H6d-Nd-TyR"/>
                             <constraint firstItem="WHG-b5-y9t" firstAttribute="top" secondItem="L3c-am-Tbf" secondAttribute="top" constant="30" id="JhL-yi-fRc"/>
                             <constraint firstItem="WHG-b5-y9t" firstAttribute="leading" secondItem="L3c-am-Tbf" secondAttribute="leading" id="TSO-cs-NHN"/>
-                            <constraint firstItem="IBB-ej-rJn" firstAttribute="top" secondItem="WHG-b5-y9t" secondAttribute="bottom" constant="10" id="UzM-4z-LZh"/>
-                            <constraint firstItem="IBB-ej-rJn" firstAttribute="leading" secondItem="L3c-am-Tbf" secondAttribute="leading" id="dFP-gi-MfR"/>
-                            <constraint firstItem="L3c-am-Tbf" firstAttribute="trailing" secondItem="IBB-ej-rJn" secondAttribute="trailing" id="tlg-Hv-Vpx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L3c-am-Tbf"/>
                     </view>
                     <connections>
-                        <outlet property="homeWebView" destination="IBB-ej-rJn" id="0s9-HQ-5LG"/>
+                        <outlet property="webView" destination="5ur-5k-rK5" id="oZ5-5E-RRz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kS-Fg-RNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="134.48275862068968"/>
+            <point key="canvasLocation" x="1438" y="134"/>
         </scene>
         <!--Time View Controller-->
         <scene sceneID="XBX-JH-OpB">
@@ -326,10 +333,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Uq-hE-kYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244" y="136.28185907046478"/>
+            <point key="canvasLocation" x="2095" y="134"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DrY-zU-MNK"/>
+        <segue reference="BEF-Rk-uNx"/>
     </inferredMetricsTieBreakers>
 </document>

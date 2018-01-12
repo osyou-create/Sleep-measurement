@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import WebKit
 
 class HomeViewController: UIViewController {
-
-    @IBOutlet weak var homeWebView: UIWebView!
-    var url:String = "https://project-u.site"
+    
+    @IBOutlet weak var webView: WKWebView!
     
     func loadURL(){
-        let requestURL = URL(string: url)
-        let request = URLRequest(url: requestURL!)
-        homeWebView.loadRequest(request)
+        let url = URL(string: "https://project-u.site")
+        let urlRequest = URLRequest(url: url!)
+        
+        webView.load(urlRequest)
     }
     
     func updateUserAgent(){
-        let newUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
+        let newUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_2 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
         let dic = ["UserAgent" : newUserAgent]
         UserDefaults.standard.register(defaults: dic)
     }
