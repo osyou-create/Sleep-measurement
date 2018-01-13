@@ -20,16 +20,8 @@ class HomeViewController: UIViewController {
         webView.load(urlRequest)
     }
     
-    func updateUserAgent(){
-        let newUserAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_1 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
-        let dic = ["UserAgent" : newUserAgent]
-        UserDefaults.standard.register(defaults: dic)
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateUserAgent()
         loadURL()
     }
 

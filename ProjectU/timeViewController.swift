@@ -80,6 +80,51 @@ class timeViewController: UIViewController {
         
     }
     
+    
+    //DBに送信
+    func send_to_db(){
+        let curtain_open:String = "1"  //開:1, 閉:0  ← 全体で共通の値
+        let id:String = "1"  //レコードのid
+        
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let updated_at = formatter.string(from: now)
+        
+        let url = "https://project-u.site:8000/location-php/api/saveCurtainStatus.php"
+        guard let requestURL = URL(string:url) else {
+            return
+        }
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        let postParameters1 = "curtain="+curtain_open+"&updated_at="+updated_at
+        let postParameters = postParameters1+"&id="+id
+        request.httpBody = postParameters.data(using: .utf8)
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest){
+            data, response, error in
+            
+            if error != nil{
+                print("error is \(String(describing: error))")
+                return
+            }
+            do{
+                let myJSON = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                if let parseJSON = myJSON{
+                    var msg : String!
+                    msg = parseJSON["message"] as! String?
+                    print("msg is \(msg)")
+                }
+            }catch{
+                print("error2 is \(String(describing: error))")
+            }
+        }
+        task.resume()
+    }
+    
+    
     //ボタンクリック動作
     @IBAction func uptime_push(_ sender: UIButton) {
         let alert = UIAlertController(title:"時間設定",message:"起床時間の設定です",preferredStyle: UIAlertControllerStyle.alert)
