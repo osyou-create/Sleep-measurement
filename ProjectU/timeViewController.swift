@@ -15,6 +15,8 @@ class timeViewController: UIViewController {
     
     //何分後だったかを入れる変数。
     var result_time:Int = 0
+    
+    let now = Date()
 
     //データフォーマット。取得する値はwhichの値で異なる。
     func dateFormat(which: Int,date: Date)->(String){
@@ -33,7 +35,6 @@ class timeViewController: UIViewController {
     
     //設定時間の計算処理
     func culcTime(){
-        let now = Date()
         //現在時刻と設定時刻を分換算
         let now_time = Int(dateFormat(which: 1, date: now))!*60 + Int(dateFormat(which: 2, date: now))!
         let set_time = Int(dateFormat(which: 1, date: upTime.date))!*60 + Int(dateFormat(which: 2, date: upTime.date))!
@@ -43,12 +44,14 @@ class timeViewController: UIViewController {
             result_time = set_time - now_time
             if result_time >= 0{
                 if result_time > 60{
-                    setTime.text = "\(result_time/60)時間\(result_time%60)分後です"
+                    rema_time.text = "\(result_time/60)時間\(result_time%60)分後です"
+                    setting_time(rt: result_time)
                 }else{
-                    setTime.text = "\(result_time)分後です"
+                    rema_time.text = "\(result_time)分後です"
+                    setting_time(rt: result_time)
                 }
             }else{
-                setTime.text = "時間が過ぎています"
+                rema_time.text = "時間が過ぎています"
             }
         }else{
             //設定日が当日じゃない場合
@@ -62,22 +65,29 @@ class timeViewController: UIViewController {
                 if result_time > 1440{
                     let day = result_time/1400
                     let hour = result_time - (day*1440)
-                    setTime.text = "\(day)日\(hour/60)時間\(hour%60)分後です"
+                    rema_time.text = "\(day)日\(hour/60)時間\(hour%60)分後です"
+                    setting_time(rt: result_time)
                 }else if result_time > 60{
-                    setTime.text = "\(result_time/60)時間\(result_time%60)分後です"
+                    rema_time.text = "\(result_time/60)時間\(result_time%60)分後です"
+                    setting_time(rt: result_time)
                 }else{
-                    setTime.text = "\(result_time)分後です"
+                    rema_time.text = "\(result_time)分後です"
+                    setting_time(rt: result_time)
                 }
             }else{
-                setTime.text = "日にちが過ぎています"
+                rema_time.text = "日にちが過ぎています"
             }
         }
-        
-        
     }
-    //残り時間のカウントダウン
-    func remaining_hour(){
+
+    func setting_time(rt:Int){
+        let rtt = Date(timeInterval: TimeInterval(60*rt),since: now)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM月dd日 HH時mm分"
+        let resT = formatter.string(from: rtt)
+        setTime.text = "\(resT)"
         
+        db_send(set_time: result_time)
     }
     
     //ボタンクリック動作
@@ -86,7 +96,6 @@ class timeViewController: UIViewController {
         let ok = UIAlertAction(title:"時間を設定する",style:UIAlertActionStyle.default,handler:{
             (action: UIAlertAction!) in
             self.culcTime()
-            self.remaining_hour()
         })
         let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
             (action: UIAlertAction!) in
@@ -97,12 +106,24 @@ class timeViewController: UIViewController {
         self.present(alert,animated: true,completion: nil)
     }
     
+    func db_send(set_time:Int) {
+        var set_time = set_time
+        set_time = set_time * 60
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(set_time)){
+            //ここにPHPの処理
+            self.rema_time.text = "カーテンオープン"
+            
+        }
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         upTime.date = Date()
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
