@@ -62,12 +62,7 @@ class timeViewController: UIViewController {
             let after_time = set_time
             if diff_day >= 0{
                 result_time = before_time + after_time + (diff_day-1)*24*60
-                if result_time > 1440{
-                    let day = result_time/1400
-                    let hour = result_time - (day*1440)
-                    rema_time.text = "\(day)日\(hour/60)時間\(hour%60)分後です"
-                    setting_time(rt: result_time)
-                }else if result_time > 60{
+                if result_time > 60{
                     rema_time.text = "\(result_time/60)時間\(result_time%60)分後です"
                     setting_time(rt: result_time)
                 }else{
@@ -80,6 +75,7 @@ class timeViewController: UIViewController {
         }
     }
 
+    //設定時間処理
     func setting_time(rt:Int){
         let rtt = Date(timeInterval: TimeInterval(60*rt),since: now)
         let formatter = DateFormatter()
@@ -88,6 +84,16 @@ class timeViewController: UIViewController {
         setTime.text = "\(resT)"
         
         db_send(set_time: result_time)
+        Timer.scheduledTimer(timeInterval: 60,target: self,selector: #selector(self.timerUpdate),userInfo: nil,repeats: true)
+    }
+    
+    @objc func timerUpdate(){
+        result_time -= 1
+        if result_time > 60{
+            rema_time.text = "\(result_time/60)時間\(result_time%60)分後です"
+        }else{
+            rema_time.text = "\(result_time)分後です"
+        }
     }
     
     
