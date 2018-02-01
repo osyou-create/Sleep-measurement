@@ -161,7 +161,7 @@ class timeViewController: UIViewController {
         var set_time = set_time
         set_time = set_time * 60
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(set_time)){
-            //ここにPHPの処理
+            self.send_to_db()//ここにPHPの処理
             self.rema_time.text = "カーテンオープン"
             
         }
