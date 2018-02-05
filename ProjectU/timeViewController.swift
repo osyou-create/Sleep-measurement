@@ -147,6 +147,10 @@ class timeViewController: UIViewController {
         let ok = UIAlertAction(title:"時間を設定する",style:UIAlertActionStyle.default,handler:{
             (action: UIAlertAction!) in
             self.culcTime()
+            
+            // スリープ状態への移行を防ぐ
+            UIApplication.shared.isIdleTimerDisabled = true
+            
         })
         let cancel = UIAlertAction(title: "キャンセル", style: UIAlertActionStyle.cancel, handler: {
             (action: UIAlertAction!) in
@@ -163,6 +167,9 @@ class timeViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(set_time)){
             self.send_to_db()//ここにPHPの処理
             self.rema_time.text = "カーテンオープン"
+            
+            // スリープ状態への移行を防ぐ設定を解除する
+            UIApplication.shared.isIdleTimerDisabled = false
             
         }
     }

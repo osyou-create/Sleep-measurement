@@ -59,6 +59,12 @@ class SleepViewController: UIViewController {
         sleepdate[0].append(now)
         sleepdate[1].append(average)
     }
+    
+    // 近接センサー
+    @objc func proximitySensorStateDidChange(){
+        
+    }
+    
     //睡眠測定スタートボタン(BGで動かすのに同時に位置情報開始)
     @IBAction func sleepstart(_ sender: UIButton!) {
         motionManager.startAccelerometerUpdates(
@@ -68,6 +74,9 @@ class SleepViewController: UIViewController {
         })
         locationManager.startUpdatingLocation()
         self.view.backgroundColor = UIColor.init(red: 0, green: 255, blue: 157, alpha: 1)
+        
+        // スリープ状態への移行を防ぐ
+        UIApplication.shared.isIdleTimerDisabled = true
         
     }
     //睡眠測定ストップボタン（終了と同時にcsvファイルに書き込み,位置情報終了）
@@ -101,6 +110,10 @@ class SleepViewController: UIViewController {
         sleepdate.removeAll()
         sleepdate = [[],[]]
         locationManager.stopUpdatingLocation()
+        
+        // スリープ状態への移行を防ぐ設定を解除する
+        UIApplication.shared.isIdleTimerDisabled = false
+        
     }
 
     //位置情報のポップアップ用？※覚えてないから使う時が来たら調べて。
@@ -115,6 +128,11 @@ class SleepViewController: UIViewController {
     //とりあえず色々呼び出してるメインちゃん
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 近接センサー：ON
+        UIDevice.current.isProximityMonitoringEnabled = true
+        NotificationCenter.default.addObserver(self,selector: #selector(proximitySensorStateDidChange),name: NSNotification.Name.UIDeviceProximityStateDidChange,object: nil)
+        
         if motionManager.isAccelerometerAvailable {
             //計測は8秒間隔
             motionManager.accelerometerUpdateInterval = 8
@@ -127,6 +145,14 @@ class SleepViewController: UIViewController {
         if (status == .notDetermined) {
             locationManager.requestAlwaysAuthorization();
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // 近接センサー：OFF
+        UIDevice.current.isProximityMonitoringEnabled = false
+        NotificationCenter.default.removeObserver(self,name: NSNotification.Name.UIDeviceProximityStateDidChange,object: nil)
     }
     
     //アプリのメモリ不足警告。触るな危険。

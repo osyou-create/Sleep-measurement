@@ -28,6 +28,7 @@
 	<string>位置情報の記録に必要です</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
